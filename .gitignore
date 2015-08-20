@@ -1,0 +1,8 @@
+archive
+node_modules
+workspace.xml
+.idea/*
+.idea/workspace.xml
+*.xml
+upload
+upload/*
