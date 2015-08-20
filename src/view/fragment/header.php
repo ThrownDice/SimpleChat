@@ -88,8 +88,22 @@
 			margin-left: 30px;
 		}
 
+		/*.btn {
+			font-family: 'Nanum Gothic Coding', monospace;
+			border-radius : 5px;
+			background-color : #1474CC;
+			margin: 10px;
+			text-align: center;
+			padding: 10px;
+			cursor: pointer;
+		}
+
+		.btn:hover {
+			background-color: #FF8F00;
+		}*/
+
 	</style>
-	<div class="logo border-gray">logo</div>
+	<a href="/" class="logo border-gray">logo</a>
 	<ul class="border-green">
 		<li class=""><a href="/about" class="about text-btn">About</a></li>
 		<li class="border-gray"><a href="/sns" class="sns text-btn">SNS</a></li>

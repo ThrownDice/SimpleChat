@@ -7,6 +7,9 @@
  */
 
 
+/**
+ * Class Vim
+ */
 class Vim {
 
 	private $url;
@@ -15,43 +18,38 @@ class Vim {
 	 * Constructor.
 	 */
 	function Vim() {
-		// Get the url requested, if empty, fill in with "null" .
+		// Slice the URL requested, if empty, assign "null" at key 0.
 		if(isset($_GET['url'])) {
 			$urlToTrim = explode("/", $_GET['url']);
 			$this->url = $urlToTrim;
 		} else {
 			$this->url = array("0" => "null");
 		}
-
 	}
 
+	/**
+	 * route function.
+	 */
 	function route() {
-		switch($this->url[0]) {
-			case "about":
-				$this->enter("about");
-				break;
-			case "sns":
-				$this->enter("sns");
-				break;
-			case "messenger":
-				$this->enter("messenger");
-				break;
-			case "scanner":
-				$this->enter("scanner");
-				break;
-			default:
-				$this->enter("home");
-				break;
-		}
+		$this->enter($this->url[0]);
 	}
 
 
 	/**
+	 *
 	 * @param $controller
 	 */
 	function enter($controller) {
-		$instance = new $controller();
-		$instance->main();
+		// Call a given controller, except when the segment1 is "null", in which, call Home.
+		if($controller!="null") {
+			$instance = new $controller();
+			$instance->main();
+		} else {
+			$instance = new Home();
+			$instance->main();
+		}
+
+
 	}
 
 	function main() {
